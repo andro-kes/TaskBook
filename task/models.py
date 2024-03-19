@@ -10,6 +10,9 @@ class TagModel(models.Model):
     
     tag_name = models.CharField(max_length=50)
     color = models.CharField(max_length=10, choices=color_list)
+    
+    def __str__(self):
+        return self.tag_name
 
 class TaskModel(models.Model):
     category_list = (
@@ -22,3 +25,6 @@ class TaskModel(models.Model):
     task_name = models.CharField(max_length=250)
     category = models.CharField(max_length=20, choices=category_list)
     tag = models.ForeignKey(TagModel, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.task_name

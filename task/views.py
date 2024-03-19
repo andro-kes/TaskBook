@@ -1,7 +1,9 @@
-from django.shortcuts import render
 from rest_framework.generics import ListAPIView
+from .serializers import TaskSerializer
 from .models import TaskModel
 
 class ListTaskAPIView(ListAPIView):
-    model = TaskModel
     queryset = TaskModel.objects.all()
+    serializer_class = TaskSerializer
+    
+
