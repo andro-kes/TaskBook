@@ -29,6 +29,9 @@ INSTALLED_APPS = [
     # local
     'task',
     'users',
+    
+    # 3-rd party
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
