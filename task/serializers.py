@@ -7,7 +7,7 @@ class TagSerializer(serializers.ModelSerializer):
         fields = ('tag_name', 'color')
 
 class TaskSerializer(serializers.ModelSerializer):
-    tag = TagSerializer(read_only=True)
+    tag = serializers.PrimaryKeyRelatedField(queryset=TagModel.objects.all())
     
     class Meta:
         model = TaskModel

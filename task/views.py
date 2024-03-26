@@ -1,10 +1,10 @@
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import ListCreateAPIView
 from .serializers import TaskSerializer
 from .models import TaskModel
 from rest_framework import filters
 from rest_framework.pagination import PageNumberPagination
 
-class ListTaskAPIView(ListAPIView):
+class ListTaskAPIView(ListCreateAPIView):
     queryset = TaskModel.objects.all()
     serializer_class = TaskSerializer
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
@@ -12,7 +12,7 @@ class ListTaskAPIView(ListAPIView):
     ordering_fields = ['task_name']
     
     class CustomPagination(PageNumberPagination):
-        page_size = 1
+        page_size = 3
         page_query_param = 'page_size'
         max_page_size = 3
         
