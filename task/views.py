@@ -1,4 +1,4 @@
-from rest_framework.generics import ListCreateAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from .serializers import TaskSerializer
 from .models import TaskModel
 from rest_framework import filters
@@ -17,5 +17,10 @@ class ListTaskAPIView(ListCreateAPIView):
         max_page_size = 3
         
     pagination_class = CustomPagination
+    
+class DetailTask(RetrieveUpdateDestroyAPIView):
+    queryset = TaskModel.objects.all()
+    serializer_class = TaskSerializer
+    lookup_field = 'id'
     
 
