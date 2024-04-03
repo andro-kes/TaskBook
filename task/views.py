@@ -1,6 +1,6 @@
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
-from .serializers import TaskSerializer
-from .models import TaskModel
+from .serializers import TaskSerializer, TagSerializer
+from .models import TaskModel, TagModel
 from rest_framework import filters
 from rest_framework.pagination import PageNumberPagination
 
@@ -23,4 +23,6 @@ class DetailTask(RetrieveUpdateDestroyAPIView):
     serializer_class = TaskSerializer
     lookup_field = 'id'
     
-
+class TagCreateList(ListCreateAPIView):
+    queryset = TagModel.objects.all()
+    serializer_class = TagSerializer

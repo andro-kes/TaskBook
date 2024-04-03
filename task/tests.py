@@ -1,3 +1,5 @@
-from django.test import TestCase
+# Нет потребности в тестах. Проект маленький.
 
-# Create your tests here.
+
+
+
